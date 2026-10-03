@@ -23,6 +23,8 @@ enum Commands {
 fn main() -> Result<()> {
     let mut cfg: utils::config::AppConfig = confy::load("rust-cli", None)?;
     println!("config vars: {:?}", cfg);
+    let full_path = confy::get_configuration_file_path("rust-cli", None);
+    println!("path vars: {:?}", full_path);
     // initialisation au cli
     let cli: Cli = Cli::parse();
 
